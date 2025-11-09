@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board of Trustees - ÉCLAT COUTURE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✨ New Spring Collection Now Available ✨ Summer Events Coming Soon ✨ Book Your Appointment Today ✨ New Spring Collection Now Available ✨</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>ÉCLAT</h1>
+                <p>COUTURE</p>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">COLLECTIONS</a></li>
+                    <li><a href="board.html" class="active">BOARD</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="showCartNotification()">🛍️ <span class="cart-count">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-hero">
+        <h1>Board of Trustees</h1>
+        <p>Meet the visionary leaders behind ÉCLAT COUTURE</p>
+    </section>
+
+    <!-- Board Members Section -->
+    <section class="board-section">
+        <div class="board-grid">
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>Alexandra Fontaine</h3>
+                <p class="position">Founder & Creative Director</p>
+                <p class="bio">20+ years in haute couture with collections at Paris Fashion Week</p>
+            </div>
+
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>Marcus Sterling</h3>
+                <p class="position">Chief Executive Officer</p>
+                <p class="bio">Former luxury goods executive with extensive international experience</p>
+            </div>
+
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>Isabelle Rousseau</h3>
+                <p class="position">Chief Operations Officer</p>
+                <p class="bio">Expert in fashion logistics and supply chain management</p>
+            </div>
+
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>Giovanni Marini</h3>
+                <p class="position">Head of Design</p>
+                <p class="bio">Italian master craftsman with family heritage in textiles</p>
+            </div>
+
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>Sophie Laurent</h3>
+                <p class="position">Director of Marketing</p>
+                <p class="bio">Award-winning marketing strategist with global brand experience</p>
+            </div>
+
+            <div class="board-member" onmouseover="showBioPopup(this)" onmouseout="hideBioPopup()">
+                <div class="member-image">
+                    <img src="/placeholder.svg?height=350&width=280" alt="Board Member">
+                </div>
+                <h3>David Chen</h3>
+                <p class="position">Chief Financial Officer</p>
+                <p class="bio">Finance expert with significant investments in luxury sector</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>At ÉCLAT COUTURE, our Board of Trustees is dedicated to creating exceptional fashion that transcends time. We believe in the power of design, craftsmanship, and innovation to inspire confidence and elegance in every wearer.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ÉCLAT COUTURE</h4>
+                <p>Luxury Fashion House since 2015</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>hello@eclatcouture.com</p>
+                <p>+1 (212) 555-0123</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" onclick="handleSocialClick(event)">Instagram</a>
+                    <a href="#" onclick="handleSocialClick(event)">Twitter</a>
+                    <a href="#" onclick="handleSocialClick(event)">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function showBioPopup(element) {
+            element.style.transform = 'scale(1.05)';
+            element.style.boxShadow = '0 20px 60px rgba(0,0,0,0.3)';
+        }
+
+        function hideBioPopup() {
+            document.querySelectorAll('.board-member').forEach(member => {
+                member.style.transform = 'scale(1)';
+                member.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉCLAT COUTURE - Luxury Fashion House</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✨ New Spring Collection Now Available ✨ Summer Events Coming Soon ✨ Book Your Appointment Today ✨ New Spring Collection Now Available ✨</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>ÉCLAT</h1>
+                <p>COUTURE</p>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="products.html">COLLECTIONS</a></li>
+                    <li><a href="board.html">BOARD</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="showCartNotification()">🛍️ <span class="cart-count">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Optimal Organization Meets Exquisite Design</h2>
+            <p class="hero-subtitle">Transform your wardrobe into a curated collection of timeless elegance</p>
+            <button class="cta-button" onclick="scrollToSection('featured')">EXPLORE NOW</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1714228860111-0028d0060b95?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEhlcm8lMjBmYXNoaW9uJTIwbW9kZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Hero fashion model">
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section id="featured" class="featured-section">
+        <h2>Featured Collections</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1620812112510-ea35f4cc7875?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RXZlbmluZyUyMENvbGxlY3Rpb24lMjBjbG90aGluZyUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" alt="Evening Collection">
+                <h3>Evening Elegance</h3>
+                <p>Sophisticated gowns for your most memorable occasions</p>
+                <a href="products.html" class="view-link">View Collection →</a>
+            </div>
+            <div class="collection-card">
+                <img src="https://plus.unsplash.com/premium_photo-1723925110801-110c00d392a3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QnVzaW5lc3MlMjBDb2xsZWN0aW9uJTIwY2xvdGhpbmclMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600" alt="Business Collection">
+                <h3>Professional Couture</h3>
+                <p>Tailored pieces for the modern professional</p>
+                <a href="products.html" class="view-link">View Collection →</a>
+            </div>
+            <div class="collection-card">
+                <img src="https://images.unsplash.com/photo-1692818277558-f1e7c9d0f54e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UmVzb3J0JTIwQ29sbGVjdGlvbiUyMGNsb3RoaW5nJTIwaW1hZ2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600" alt="Resort Collection">
+                <h3>Resort Escape</h3>
+                <p>Luxurious beachwear and resort collections</p>
+                <a href="products.html" class="view-link">View Collection →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Book Your Personal Styling Session</h2>
+            <p>Experience our bespoke consultation services</p>
+            <a href="contact.html" class="cta-button-secondary">BOOK APPOINTMENT</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ÉCLAT COUTURE</h4>
+                <p>Luxury Fashion House since 2015</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>hello@eclatcouture.com</p>
+                <p>+1 (212) 555-0123</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" onclick="handleSocialClick(event)">Instagram</a>
+                    <a href="#" onclick="handleSocialClick(event)">Twitter</a>
+                    <a href="#" onclick="handleSocialClick(event)">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

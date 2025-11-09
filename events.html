@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - ÉCLAT COUTURE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✨ New Spring Collection Now Available ✨ Summer Events Coming Soon ✨ Book Your Appointment Today ✨ New Spring Collection Now Available ✨</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>ÉCLAT</h1>
+                <p>COUTURE</p>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">COLLECTIONS</a></li>
+                    <li><a href="board.html">BOARD</a></li>
+                    <li><a href="events.html" class="active">EVENTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="showCartNotification()">🛍️ <span class="cart-count">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-hero">
+        <h1>Upcoming Events</h1>
+        <p>Join us for exclusive fashion experiences</p>
+    </section>
+
+    <!-- Events Timeline -->
+    <section class="events-section">
+        <div class="events-container">
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">JAN</span>
+                    <span class="day">15</span>
+                </div>
+                <div class="event-details">
+                    <h3>Spring Collection Launch</h3>
+                    <p class="event-type">🎭 Fashion Show</p>
+                    <p>New York Metropolitan Museum</p>
+                    <p class="event-time">6:00 PM - 9:00 PM</p>
+                    <p class="event-description">Witness the unveiling of our exclusive Spring Collection featuring sustainable luxury pieces and innovative designs.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">FEB</span>
+                    <span class="day">20</span>
+                </div>
+                <div class="event-details">
+                    <h3>Boutique Styling Workshop</h3>
+                    <p class="event-type">👗 Workshop</p>
+                    <p>ÉCLAT COUTURE Flagship Store - Manhattan</p>
+                    <p class="event-time">2:00 PM - 5:00 PM</p>
+                    <p class="event-description">Learn styling tips from our expert fashion consultants. Includes personal styling session and exclusive discounts.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">MAR</span>
+                    <span class="day">10</span>
+                </div>
+                <div class="event-details">
+                    <h3>Paris Fashion Week Showcase</h3>
+                    <p class="event-type">🌍 International</p>
+                    <p>Palais de Tokyo, Paris</p>
+                    <p class="event-time">8:00 PM - 11:00 PM</p>
+                    <p class="event-description">Experience ÉCLAT COUTURE at the prestigious Paris Fashion Week. Limited VIP tickets available.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">APR</span>
+                    <span class="day">05</span>
+                </div>
+                <div class="event-details">
+                    <h3>Summer Resort Collection Preview</h3>
+                    <p class="event-type">🏖️ Private Preview</p>
+                    <p>Beverly Hills Boutique</p>
+                    <p class="event-time">12:00 PM - 6:00 PM</p>
+                    <p class="event-description">Exclusive first look at our Summer Resort Collection. Complimentary champagne and styling consultation included.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">MAY</span>
+                    <span class="day">18</span>
+                </div>
+                <div class="event-details">
+                    <h3>Gala Evening & Fashion Show</h3>
+                    <p class="event-type">✨ Gala</p>
+                    <p>Grand Plaza Hotel - Chicago</p>
+                    <p class="event-time">7:30 PM - 11:30 PM</p>
+                    <p class="event-description">Elegant black-tie gala featuring our latest haute couture collection with live music and exclusive auctions.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card" onclick="registerEvent(this)">
+                <div class="event-date">
+                    <span class="month">JUN</span>
+                    <span class="day">22</span>
+                </div>
+                <div class="event-details">
+                    <h3>Sustainability Forum</h3>
+                    <p class="event-type">🌱 Seminar</p>
+                    <p>Design District - Miami</p>
+                    <p class="event-time">3:00 PM - 6:00 PM</p>
+                    <p class="event-description">Join us for a discussion on sustainable luxury fashion. Featuring industry leaders and eco-conscious innovations.</p>
+                    <button class="register-btn">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ÉCLAT COUTURE</h4>
+                <p>Luxury Fashion House since 2015</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>hello@eclatcouture.com</p>
+                <p>+1 (212) 555-0123</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" onclick="handleSocialClick(event)">Instagram</a>
+                    <a href="#" onclick="handleSocialClick(event)">Twitter</a>
+                    <a href="#" onclick="handleSocialClick(event)">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function registerEvent(card) {
+            const eventName = card.querySelector('h3').textContent;
+            alert(`Thank you! You've registered for:\n\n${eventName}\n\nConfirmation details will be sent to your email.`);
+            card.style.backgroundColor = '#f0f0f0';
+            card.querySelector('.register-btn').textContent = '✓ Registered';
+            card.querySelector('.register-btn').disabled = true;
+        }
+    </script>
+</body>
+</html>

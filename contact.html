@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Appointments - ÉCLAT COUTURE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✨ New Spring Collection Now Available ✨ Summer Events Coming Soon ✨ Book Your Appointment Today ✨ New Spring Collection Now Available ✨</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>ÉCLAT</h1>
+                <p>COUTURE</p>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">COLLECTIONS</a></li>
+                    <li><a href="board.html">BOARD</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                    <li><a href="contact.html" class="active">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="showCartNotification()">🛍️ <span class="cart-count">0</span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-hero">
+        <h1>Get in Touch</h1>
+        <p>Book an appointment or send us your inquiries</p>
+    </section>
+
+    <!-- Contact & Appointment Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Inquiry Form -->
+            <div class="contact-form-container">
+                <h2>Send us an Inquiry</h2>
+                <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+            </div>
+
+            <!-- Appointment Booking -->
+            <div class="contact-form-container">
+                <h2>Book an Appointment</h2>
+                <form id="appointmentForm" onsubmit="handleAppointmentSubmit(event)">
+                    <div class="form-group">
+                        <label for="apt-name">Full Name *</label>
+                        <input type="text" id="apt-name" name="apt-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apt-email">Email Address *</label>
+                        <input type="email" id="apt-email" name="apt-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apt-date">Preferred Date *</label>
+                        <input type="date" id="apt-date" name="apt-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apt-time">Preferred Time *</label>
+                        <select id="apt-time" name="apt-time" required>
+                            <option value="">Select a time</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apt-service">Service Type *</label>
+                        <select id="apt-service" name="apt-service" required>
+                            <option value="">Select service</option>
+                            <option value="personal-styling">Personal Styling Session</option>
+                            <option value="consultation">Fashion Consultation</option>
+                            <option value="fittings">Custom Fittings</option>
+                            <option value="alterations">Alterations</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>📍 New York Flagship</h4>
+                    <p>Fifth Avenue, Manhattan</p>
+                    <p>New York, NY 10022</p>
+                </div>
+                <div class="info-card">
+                    <h4>📞 Phone</h4>
+                    <p>+1 (212) 555-0123</p>
+                    <p>Mon-Sat: 10 AM - 8 PM</p>
+                    <p>Sun: 12 PM - 6 PM</p>
+                </div>
+                <div class="info-card">
+                    <h4>✉️ Email</h4>
+                    <p>hello@eclatcouture.com</p>
+                    <p>inquiries@eclatcouture.com</p>
+                </div>
+                <div class="info-card">
+                    <h4>🌐 Boutiques</h4>
+                    <p>Paris • Milan • London</p>
+                    <p>Los Angeles • Tokyo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ÉCLAT COUTURE</h4>
+                <p>Luxury Fashion House since 2015</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>hello@eclatcouture.com</p>
+                <p>+1 (212) 555-0123</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" onclick="handleSocialClick(event)">Instagram</a>
+                    <a href="#" onclick="handleSocialClick(event)">Twitter</a>
+                    <a href="#" onclick="handleSocialClick(event)">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            alert(`Thank you ${name}!\n\nYour inquiry has been received.\nWe will contact you at ${email} shortly.`);
+            document.getElementById('inquiryForm').reset();
+        }
+
+        function handleAppointmentSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('apt-name').value;
+            const date = document.getElementById('apt-date').value;
+            const time = document.getElementById('apt-time').value;
+            alert(`Appointment Confirmed!\n\nName: ${name}\nDate: ${date}\nTime: ${time}\n\nA confirmation email will be sent shortly.`);
+            document.getElementById('appointmentForm').reset();
+        }
+    </script>
+</body>
+</html>
