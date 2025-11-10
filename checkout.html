@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ÉCLAT COUTURE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✨ New Spring Collection Now Available ✨ Summer Events Coming Soon ✨ Book Your Appointment Today ✨ New Spring Collection Now Available ✨</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>ÉCLAT</h1>
+                <p>COUTURE</p>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="products.html">COLLECTIONS</a></li>
+                    <li><a href="board.html">BOARD</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="goBack()">← Back to Cart</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="checkout-container">
+            <!-- Progress Steps -->
+            <div class="checkout-progress">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Shipping</div>
+                </div>
+                <div class="progress-step" id="paymentStep">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="progress-step" id="reviewStep">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Shipping Form -->
+                <div id="shippingForm" class="checkout-form active">
+                    <h2>Shipping Information</h2>
+                    <form onsubmit="goToPayment(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name *</label>
+                                <input type="text" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name *</label>
+                                <input type="text" id="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Street Address *</label>
+                            <input type="text" id="address" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label>State/Province *</label>
+                                <input type="text" id="state" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Postal Code *</label>
+                                <input type="text" id="postalCode" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Country *</label>
+                                <select id="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="USA">United States</option>
+                                    <option value="CAN">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="FR">France</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="IT">Italy</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="shipping-methods">
+                            <h3>Shipping Method</h3>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="standard" checked onchange="updateShipping()">
+                                <span>Standard Shipping (5-7 business days) - <strong>FREE</strong></span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="express" onchange="updateShipping()">
+                                <span>Express Shipping (2-3 business days) - <strong>$50</strong></span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="overnight" onchange="updateShipping()">
+                                <span>Overnight Shipping (Next day) - <strong>$150</strong></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-next">Continue to Payment</button>
+                        <button type="button" class="btn-back" onclick="goToShoppingCart()">Back to Shopping Cart</button>
+                    </form>
+                </div>
+
+                <!-- Payment Form -->
+                <div id="paymentForm" class="checkout-form">
+                    <h2>Payment Information</h2>
+                    <form onsubmit="goToReview(event)">
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="card" checked>
+                                <span>💳 Credit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="paypal">
+                                <span>🅿️ PayPal</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="bank">
+                                <span>🏦 Bank Transfer</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cardholder Name *</label>
+                            <input type="text" id="cardholderName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Card Number *</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" 
+                                   oninput="formatCardNumber(this)" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiry Date *</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" 
+                                       oninput="formatExpiryDate(this)" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CVV *</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="3" 
+                                       oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                            </div>
+                        </div>
+
+                        <label class="checkbox">
+                            <input type="checkbox" id="billingSame" checked>
+                            <span>Billing address same as shipping</span>
+                        </label>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn-back" onclick="backToShipping()">Back</button>
+                            <button type="submit" class="btn-next">Review Order</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Review Order -->
+                <div id="reviewOrder" class="checkout-form">
+                    <h2>Review Your Order</h2>
+                    <div class="review-content">
+                        <div class="review-section">
+                            <h3>Shipping Details</h3>
+                            <p id="reviewShipping"></p>
+                        </div>
+
+                        <div class="review-section">
+                            <h3>Payment Method</h3>
+                            <p id="reviewPayment"></p>
+                        </div>
+
+                        <div class="review-section">
+                            <h3>Order Summary</h3>
+                            <div id="reviewCart"></div>
+                        </div>
+
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping:</span>
+                                <span id="shippingCost">$0</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax:</span>
+                                <span id="taxAmount">$0</span>
+                            </div>
+                            <div class="total-row final">
+                                <span>TOTAL:</span>
+                                <span id="grandTotal">$0</span>
+                            </div>
+                        </div>
+
+                        <label class="checkbox">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the Terms and Conditions and Privacy Policy</span>
+                        </label>
+
+                        <div class="form-navigation">
+                            <button class="btn-back" onclick="backToPayment()">Back</button>
+                            <button class="btn-complete" onclick="completeOrder()">Complete Purchase</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary Sidebar -->
+            <aside class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="summaryItems"></div>
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="summarySubtotal">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="summarySipping">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="summaryTax">$0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>TOTAL:</span>
+                        <span id="summaryTotal">$0</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ÉCLAT COUTURE</h4>
+                <p>Luxury Fashion House since 2015</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="board.html">Board</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>hello@eclatcouture.com</p>
+                <p>+1 (212) 555-0123</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" onclick="handleSocialClick(event)">Instagram</a>
+                    <a href="#" onclick="handleSocialClick(event)">Twitter</a>
+                    <a href="#" onclick="handleSocialClick(event)">Pinterest</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Checkout Page JavaScript Features
+
+        let currentStep = 'shipping';
+        let shippingCost = 0;
+        let taxRate = 0.08;
+
+        function goToPayment(e) {
+            e.preventDefault();
+            if (validateForm('shippingForm')) {
+                document.getElementById('shippingForm').classList.remove('active');
+                document.getElementById('paymentForm').classList.add('active');
+                document.getElementById('paymentStep').classList.add('active');
+                currentStep = 'payment';
+                updateSummary();
+                showNotification('Proceeding to payment...');
+            }
+        }
+
+        function backToShipping() {
+            document.getElementById('paymentForm').classList.remove('active');
+            document.getElementById('shippingForm').classList.add('active');
+            document.getElementById('paymentStep').classList.remove('active');
+            currentStep = 'shipping';
+        }
+
+        function goToReview(e) {
+            e.preventDefault();
+            if (validateForm('paymentForm')) {
+                document.getElementById('paymentForm').classList.remove('active');
+                document.getElementById('reviewOrder').classList.add('active');
+                document.getElementById('reviewStep').classList.add('active');
+                currentStep = 'review';
+                displayReviewOrder();
+                updateSummary();
+                showNotification('Review your order details');
+            }
+        }
+
+        function backToPayment() {
+            document.getElementById('reviewOrder').classList.remove('active');
+            document.getElementById('paymentForm').classList.add('active');
+            document.getElementById('reviewStep').classList.remove('active');
+            currentStep = 'payment';
+        }
+
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#d4423b';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+
+            if (!isValid) {
+                showNotification('Please fill in all required fields');
+            }
+            return isValid;
+        }
+
+        function updateShipping() {
+            const selected = document.querySelector('input[name="shipping"]:checked').value;
+            switch(selected) {
+                case 'standard': shippingCost = 0; break;
+                case 'express': shippingCost = 50; break;
+                case 'overnight': shippingCost = 150; break;
+            }
+            updateSummary();
+        }
+
+        function formatCardNumber(input) {
+            input.value = input.value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
+        }
+
+        function formatExpiryDate(input) {
+            input.value = input.value.replace(/\D/g, '').replace(/(\d{2})(\d{0,2})/, '$1/$2');
+        }
+
+        function displayReviewOrder() {
+            const shippingInfo = `
+                <strong>${document.getElementById('firstName').value} ${document.getElementById('lastName').value}</strong><br>
+                ${document.getElementById('address').value}<br>
+                ${document.getElementById('city').value}, ${document.getElementById('state').value} ${document.getElementById('postalCode').value}<br>
+                ${document.getElementById('country').value}
+            `;
+            document.getElementById('reviewShipping').innerHTML = shippingInfo;
+
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            const paymentInfo = paymentMethod === 'card' 
+                ? `💳 Card ending in ${document.getElementById('cardNumber').value.slice(-4)}`
+                : paymentMethod === 'paypal' 
+                ? '🅿️ PayPal Account'
+                : '🏦 Bank Transfer';
+            document.getElementById('reviewPayment').innerHTML = paymentInfo;
+
+            populateCartItems();
+        }
+
+        function populateCartItems() {
+            const cartHTML = cartItems.map((item, index) => `
+                <div class="cart-item-review">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toLocaleString()}</span>
+                </div>
+            `).join('');
+            document.getElementById('reviewCart').innerHTML = cartHTML || '<p>No items in cart</p>';
+        }
+
+        function updateSummary() {
+            const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+            const tax = Math.round(subtotal * taxRate * 100) / 100;
+            const total = subtotal + shippingCost + tax;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toLocaleString()}`;
+            document.getElementById('shippingCost').textContent = `$${shippingCost}`;
+            document.getElementById('taxAmount').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('grandTotal').textContent = `$${total.toFixed(2)}`;
+
+            document.getElementById('summarySubtotal').textContent = `$${subtotal.toLocaleString()}`;
+            document.getElementById('summarySipping').textContent = `$${shippingCost}`;
+            document.getElementById('summaryTax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('summaryTotal').textContent = `$${total.toFixed(2)}`;
+
+            populateSummaryItems();
+        }
+
+        function populateSummaryItems() {
+            const summaryHTML = cartItems.map((item) => `
+                <div class="summary-item">
+                    <span>${item.name}</span>
+                    <span>$${item.price.toLocaleString()}</span>
+                </div>
+            `).join('');
+            document.getElementById('summaryItems').innerHTML = summaryHTML || '<p style="color: #999;">No items</p>';
+        }
+
+        function completeOrder() {
+            if (!document.getElementById('agreeTerms').checked) {
+                showNotification('Please agree to Terms and Conditions');
+                return;
+            }
+
+            const orderNumber = 'ECL-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            showNotification(`Order #${orderNumber} placed successfully!`);
+            
+            setTimeout(() => {
+                alert(`Thank you for your purchase!\n\nOrder Number: ${orderNumber}\n\nYou will receive a confirmation email shortly.`);
+                cartItems.length = 0;
+                cartCount = 0;
+                updateCartCount();
+                window.location.href = 'products.html';
+            }, 1500);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function goToShoppingCart() {
+            window.location.href = 'products.html';
+        }
+
+        // Initialize checkout on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateSummary();
+            console.log('[v0] Checkout page loaded with cart items:', cartItems);
+        });
+    </script>
+</body>
+</html>

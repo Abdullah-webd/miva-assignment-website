@@ -6,7 +6,7 @@ const cartItems = []
 
 function addToCart(productId, productName, price) {
   cartCount++
-  cartItems.push({ id: productId, name: productName, price: price })
+  cartItems.push({ id: productId, name: productName, price: price, addedAt: new Date() })
   updateCartCount()
 
   // Animate the cart button
@@ -17,6 +17,7 @@ function addToCart(productId, productName, price) {
   }, 300)
 
   showNotification(`${productName} added to cart!`)
+  console.log("[v0] Item added to cart:", { productName, price, cartCount })
 }
 
 function updateCartCount() {
@@ -30,9 +31,16 @@ function showCartNotification() {
   if (cartCount === 0) {
     alert("Your cart is empty. Start shopping!")
   } else {
-    alert(
-      `You have ${cartCount} items in your cart.\n\nItems:\n${cartItems.map((item) => `- ${item.name}: $${item.price}`).join("\n")}\n\nTotal: $${cartItems.reduce((sum, item) => sum + item.price, 0).toLocaleString()}`,
+    const cartSummary = cartItems
+      .map((item, index) => `${index + 1}. ${item.name}: $${item.price.toLocaleString()}`)
+      .join("\n")
+    const total = cartItems.reduce((sum, item) => sum + item.price, 0)
+    const checkout = confirm(
+      `You have ${cartCount} items in your cart.\n\n${cartSummary}\n\n━━━━━━━━━━━━━━━\nTOTAL: $${total.toLocaleString()}\n\n Click OK to proceed to checkout`,
     )
+    if (checkout) {
+      window.location.href = "checkout.html"
+    }
   }
 }
 
@@ -51,6 +59,7 @@ function showNotification(message) {
         z-index: 1000;
         animation: slideIn 0.3s ease-out;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        max-width: 350px;
     `
   notification.textContent = message
   document.body.appendChild(notification)
@@ -59,6 +68,8 @@ function showNotification(message) {
     notification.style.animation = "slideOut 0.3s ease-out"
     setTimeout(() => notification.remove(), 300)
   }, 3000)
+
+  console.log("[v0] Notification:", message)
 }
 
 // 3. Social Media Click Handler
@@ -129,10 +140,21 @@ style.textContent = `
             transform: translateY(0);
         }
     }
+
+    @keyframes scaleUp {
+        from {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
 `
 document.head.appendChild(style)
 
 console.log(
-  "%c✨ ÉCLAT COUTURE - Website Loaded Successfully ✨",
+  "%c✨ ÉCLAT COUTURE - Enhanced with Product Detail & Checkout ✨",
   "color: #d4af37; font-size: 16px; font-weight: bold;",
 )

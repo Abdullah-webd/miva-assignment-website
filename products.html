@@ -97,7 +97,7 @@
     <script src="script.js"></script>
     <script>
         // Products data
-        const products = [
+       const products = [
             {
                 id: 1,
                 name: "Midnight Elegance Gown",
@@ -162,7 +162,7 @@
                 image: "https://plus.unsplash.com/premium_photo-1726769202190-ad2a3f2f360b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SGVyaXRhZ2UlMjBDb2xsZWN0aW9uJTIwQmVsdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
                 description: "Premium Italian leather with gold hardware"
             }
-        ];
+        ]; 
 
         function displayProducts(filter = 'all') {
             const grid = document.getElementById('productsGrid');
@@ -173,10 +173,12 @@
             filtered.forEach(product => {
                 const card = document.createElement('div');
                 card.className = 'product-card';
+                card.style.cursor = 'pointer';
+                card.onclick = () => navigateToProductDetail(product.id);
                 card.innerHTML = `
                     <div class="product-image">
                         <img src="${product.image}" alt="${product.name}">
-                        <button class="add-to-cart" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Add to Cart</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation(); quickAddToCart(${product.id}, '${product.name}', ${product.price})">Quick Add</button>
                     </div>
                     <div class="product-info">
                         <h3>${product.name}</h3>
@@ -186,6 +188,15 @@
                 `;
                 grid.appendChild(card);
             });
+        }
+
+        function navigateToProductDetail(productId) {
+            localStorage.setItem('selectedProductId', productId);
+            window.location.href = 'product-detail.html';
+        }
+
+        function quickAddToCart(productId, productName, price) {
+            addToCart(productId, productName, price);
         }
 
         function filterProducts(category) {
@@ -202,6 +213,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             displayProducts();
         });
+
+        function addToCart(productId, productName, price) {
+            // Implementation of addToCart function
+        }
+
+        function showCartNotification() {
+            // Implementation of showCartNotification function
+        }
+
+        function handleSocialClick(event) {
+            // Implementation of handleSocialClick function
+        }
     </script>
 </body>
 </html>
