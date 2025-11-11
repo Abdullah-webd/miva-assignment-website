@@ -490,7 +490,7 @@ button {
 .board-member {
   text-align: center;
   transition: var(--transition);
-  padding: 20px;
+  padding: 10px;
   border-radius: 4px;
 }
 
